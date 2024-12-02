@@ -37,4 +37,6 @@ The expert designed a comprehensive plan to implement CCR as follows:
 2. On the follower cluster:
 - Import the snapshot repository to ensure access to any critical pre-existing data.
 
-
+### 2. Setup Leader and Follower Clusters:
+#### A. Configure Elasticsearch YAML Files:
+- On the Leader Cluster:
