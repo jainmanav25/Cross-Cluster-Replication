@@ -137,3 +137,5 @@ The solution provided a step-by-step approach for setting up Cross-Cluster Repli
 - Ease of Management: Proxy mode simplifies cluster communication setup.
 
 The client is now equipped with a detailed guide to implement and maintain CCR, ensuring reliable data synchronization between the two clusters.
+
+You can copy and paste this Markdown content into your GitHub repository for easy reference.
