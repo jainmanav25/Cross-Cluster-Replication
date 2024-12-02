@@ -135,4 +135,4 @@ The solution provided a step-by-step approach for setting up Cross-Cluster Repli
 - High Availability: Data is replicated for fault tolerance.
 - Real-Time Syncing: Changes on the leader cluster are mirrored in near real-time to the follower cluster.
 - Ease of Management: Proxy mode simplifies cluster communication setup.
-** The client is now equipped with a detailed guide to implement and maintain CCR, ensuring reliable data synchronization between the two clusters.**
+**The client is now equipped with a detailed guide to implement and maintain CCR, ensuring reliable data synchronization between the two clusters.**
