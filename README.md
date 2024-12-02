@@ -100,7 +100,7 @@ Add data to the leader index:
    ```bash
    GET /_ccr/stats
    ```
-   ### C. Test Data Replication:
+   #### C. Test Data Replication:
 1. Add data to the leader index:
    ```bash
    POST /leader-index/_doc
