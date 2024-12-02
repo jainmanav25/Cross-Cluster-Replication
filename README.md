@@ -33,8 +33,8 @@ The expert designed a comprehensive plan to implement CCR as follows:
    ```bash
    PUT _snapshot/my_backup/snapshot_1
 
-- **Confirm the snapshot is successful.
-- **On the follower cluster:
-2. Import the snapshot repository to ensure access to any critical pre-existing data.
+- Confirm the snapshot is successful.
+2. On the follower cluster:
+- Import the snapshot repository to ensure access to any critical pre-existing data.
 
 
