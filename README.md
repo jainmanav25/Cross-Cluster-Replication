@@ -40,3 +40,52 @@ The expert designed a comprehensive plan to implement CCR as follows:
 ### 2. Setup Leader and Follower Clusters:
 #### A. Configure Elasticsearch YAML Files:
 - On the Leader Cluster:
+   ```bash
+   cluster.name: leader-cluster
+   node.name: leader-node
+   network.host: 0.0.0.0
+   http.port: 9200
+   discovery.seed_hosts: []
+   cluster.initial_master_nodes: ["leader-node"]
+- On the Follower Cluster:
+   ```bash
+   cluster.name: follower-cluster
+   node.name: follower-node
+   network.host: 0.0.0.0
+   http.port: 9200
+   discovery.seed_hosts: []
+   cluster.initial_master_nodes: ["follower-node"]
+- Restart Elasticsearch services after modifying the configuration.
+#### B. Connect Clusters:
+Use the proxy mode for CCR to simplify the setup in Windows environments:
+   ```bash
+   PUT /_cluster/settings
+   {
+     "persistent": {
+       "cluster.remote.leader-cluster.mode": "proxy",
+       "cluster.remote.leader-cluster.proxy_address": "LEADER_CLUSTER_IP:9300",
+       "cluster.remote.leader-cluster.skip_unavailable": true
+     }
+   }
+```
+### 3. Create Leader Index for Replication
+On the leader cluster, create an index for replication:
+   ```bash
+   PUT /leader-index
+   {
+     "settings": {
+       "index.number_of_shards": 1,
+       "index.number_of_replicas": 0
+     }
+   }
+```
+Add data to the leader index:
+   ```bash
+   POST /leader-index/_doc
+      {
+        "field1": "value1",
+        "field2": "value2"
+      }
+```
+### 4. Set Up CCR on Follower Cluster
+   #### A. Create a Follower Index:
